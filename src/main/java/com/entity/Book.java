@@ -10,53 +10,62 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "BookTable")
 public class Book {
-	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private int bookId;
-	@Column(name = "Title")
-	private String boookTitle;
-	@Column
-	private String author;
-	@Column
-	private double price;
-	public int getBookId() {
-		return bookId;
-	}
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
-	public String getBoookTitle() {
-		return boookTitle;
-	}
-	public void setBoookTitle(String boookTitle) {
-		this.boookTitle = boookTitle;
-	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public Book(int bookId, String boookTitle, String author, double price) {
-		super();
-		this.bookId = bookId;
-		this.boookTitle = boookTitle;
-		this.author = author;
-		this.price = price;
-	}
-	public Book() {
-		super();
-		// TODO Auto-generated constructor stub
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bookId")
+    private int bookId;
+    
+    @Column(name = "Title")
+    private String bookTitle;
+    
+    @Column(name = "Author")
+    private String author;
+    
+    @Column(name = "Price")
+    private double price;
+    
+    // Getters and Setters
+    public int getBookId() {
+        return bookId;
+    }
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+    public String getBookTitle() {
+        return bookTitle;
+    }
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+    public String getAuthor() {
+        return author;
+    }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+    public double getPrice() {
+        return price;
+    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
+    public Book(int bookId, String bookTitle, String author, double price) {
+        this.bookId = bookId;
+        this.bookTitle = bookTitle;
+        this.author = author;
+        this.price = price;
+    }
+    public Book() {
+    }
+    
+    public Book(String bookTitle, String author, double price) {
+    	 this.bookTitle = bookTitle;
+         this.author = author;
+         this.price = price;
 	}
 	@Override
-	public String toString() {
-		return "Book [bookId=" + bookId + ", boookTitle=" + boookTitle + ", author=" + author + ", price=" + price
-				+ "]";
-	}
+    public String toString() {
+        return "Book [bookId=" + bookId + ", bookTitle=" + bookTitle + ", author=" + author + ", price=" + price + "]";
+    }
 }
